@@ -45,39 +45,4 @@ def fetch_and_clean_data(series_id):
     else:
         print("Error: Unable to fetch data for",series_id,"Status code:", response.status_code)
         return None
-def fetch_data(serie):
-    for s in serie:
-        data=fetch_and_clean_data(s)
-    return data
-    
-#Fetching data for GDP
-gdp_series_id = 'GDP'  # GDP series ID
-gdp_df = fetch_and_clean_data(gdp_series_id)
 
-#Fetching data for Inflation Rate
-inflation_series_id = 'CPIAUCSL'  # Inflation Rate series ID
-inflation_df = fetch_and_clean_data(inflation_series_id)
-
-#Fetching data for Governement Spending Rate
-gs_series_id = 'GFDEBTN'  # Governement Spending series ID
-gs_df = fetch_and_clean_data(inflation_series_id)
-
-#Fetching data for unemployment Rate
-unemployment_series_id = 'UNRATE'  # Unemployment Rate series ID
-unemployment_df = fetch_and_clean_data(unemployment_series_id)
-
-# Displaying the first few rows of the cleaned data if available
-if gdp_df is not None:
-    print("GDP Data:")
-    print(gdp_df.head())
-
-if inflation_df is not None:
-    print("Inflation Rate Data:")
-    print(inflation_df.head())
-if gs_df is not None:
-    print("Governement Spending Data:")
-    print(gs_df.head())
-
-if unemployment_df is not None:
-    print("Unemployment Rate Data:")
-    print(unemployment_df.head())
