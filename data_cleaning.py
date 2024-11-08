@@ -45,4 +45,15 @@ def fetch_and_clean_data(series_id):
     else:
         print("Error: Unable to fetch data for",series_id,"Status code:", response.status_code)
         return None
-
+def main():
+    for name,serie in series_id.items():
+        data=fetch_and_clean_data(serie)
+        if data is not None:
+           print(f'{name} data:')
+           print(data.head())
+        else:
+            print("data is none")
+if __name__=="__main__":
+    main()
+    
+        

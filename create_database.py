@@ -11,11 +11,11 @@ def create_database(table_name,conn):
     
     cursor = conn.cursor()  
     # create a database table if not existe
-    cursor.execute(f"CREATE TABLE IF NOT EXISTS {table_name}(
+    cursor.execute(f"""CREATE TABLE IF NOT EXISTS {table_name}(
         ID INTEGER PRIMARY KEY AUTOINCREMENT,
         date DATETIME NOT NULL,
         VALUE REAL
-                   )")
+                   )""")
     conn.commit()
 
 
@@ -25,6 +25,7 @@ def create_database(table_name,conn):
 def insert_into_table(df,table_name,database="economic_db"):
      conn=sqlite3.connect(database)
      cursor=conn.cursor()
+     df['date'] = df['date'].dt.strftime('%Y-%m-%d')
      for index in range(len(df)):
         date = df.iloc[index]['date']
         value = df.iloc[index]['value']
@@ -34,7 +35,9 @@ def insert_into_table(df,table_name,database="economic_db"):
     
 for name,serie in series_id.items():
     data=data_cleaning.fetch_and_clean_data(serie)
+    conn=sqlite3.connect("economic_db")
     if data is not None:
+            create_database(name,conn)
             insert_into_table(data, name.replace(" ", "_").lower())  # use indicator name as table name
 
 print("All data has been inserted into SQLite database.") 
