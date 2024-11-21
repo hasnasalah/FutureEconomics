@@ -9,9 +9,9 @@ fred_key = 'ecf39d17668932f2ba0bb24587a01919'
 base_url = 'https://api.stlouisfed.org/fred/series/observations'
 series_id={
     'gdp':'GDP',
-    'iflation rate':'CPIAUCSL',
-    'unemployment rate':'UNRATE',
-    'governement spending':'FGEXPND'
+    'inflation':'CPIAUCSL',
+    'unemployment':'UNRATE',
+    'governement_spending':'FGEXPND'
 }
 
 # Method to get data for any series (e.g., GDP or Unemployment Rate)
@@ -46,6 +46,7 @@ def fetch_and_clean_data(series_id):
         print("Error: Unable to fetch data for",series_id,"Status code:", response.status_code)
         return None
 def main():
+    intrest_rate=
     for name,serie in series_id.items():
         data=fetch_and_clean_data(serie)
         if data is not None:
