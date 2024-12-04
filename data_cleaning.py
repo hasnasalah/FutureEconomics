@@ -45,13 +45,25 @@ def fetch_and_clean_data(series_id):
     else:
         print("Error: Unable to fetch data for",series_id,"Status code:", response.status_code)
         return None
+def get_interest_rate():
+    # Load the CSV file and skip the metadata rows
+    interest_rate = pd.read_csv("API_FR.INR.RINR_DS2_en_csv_v2_119 (1)/API_FR.INR.RINR_DS2_en_csv_v2_119.csv", skiprows=4)
+    # Transform into long format
+    df_filtered = interest_rate.melt(id_vars=['Country Name'], var_name='Year', value_name='Interest Rate')
+    df_filtered['Year'] = pd.to_numeric(df_filtered['Year'], errors='coerce')
+    
+    # Remove NaN values and filter for the last 20 years
+    df_filtered = df_filtered.dropna().iloc[-20:]
+    return df_filtered
+
+    
 def main():
-    intrest_rate=
+    print(get_interest_rate().head())
     for name,serie in series_id.items():
         data=fetch_and_clean_data(serie)
         if data is not None:
-           print(f'{name} data:')
-           print(data.head())
+          print(f'{name} data:')
+          print(data.head())
         else:
             print("data is none")
 if __name__=="__main__":
