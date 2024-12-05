@@ -8,7 +8,7 @@ From GDP, Unemployment rates, Governement expenditure and import & export.
 <h2>Goals</h2>
 <ol>
    <li>Predict GDP Growth: Using historical data and macroeconomic factors, forecast future GDP growth in the U.S.</li>
-   <li>Forecast Unemployment Rate: Predict fluctuations in the unemployment rate based on variables like inflation, industrial production, and other economic indicators.</li>
+   <li>Forecast Unemployment Rate: Predict fluctuations in the unemployment rate based on variables like inflation,GDP, Interest Rate and other economic indicators.</li>
 
 <h2>Dataset Sources</h2>
 <ul>
@@ -30,10 +30,10 @@ The correlation matrix is used to assess the linear relationships between pairs 
 <ul>
     <li>Programming Language: Python</li>
     <li>Data Analysis Libraries: pandas, numpy</li>
-    <li>Visualization: matplotlib, seaborn</li>
+    <li>Visualization: matplotlib</li>
     <li>APIs: FRED API, BEA API (to pull real-time data)</li>
-    <li>Database: MySQL (for data storage and management)</li>
-    <li>IDE: VS Code for code development and experimentation</li>
+    <li>Database: SQLITE (for data storage and management)</li>
+    <li>IDE: VS Code for code development </li>
 <h2>Setup Instructions</h2>
 <h3>Requirements:</h3>
 <ul>
