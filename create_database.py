@@ -12,7 +12,7 @@ database="economic_db"
 def create_database(table_name,database):
     conn=sqlite3.connect(database)
     cursor = conn.cursor()  
-    # create a database table if not existe
+    # Create a database table if not existe
     cursor.execute(f"""CREATE TABLE IF NOT EXISTS {table_name}(
         date TEXT NOT NULL,
         VALUE REAL
@@ -31,7 +31,7 @@ def insert_into_table(df,table_name,database="economic_db"):
         conn.commit()
      conn.close()
 
-    
+#Insert Data into Database tables 
 for name,serie in series_id.items():
     data=data_cleaning.fetch_and_clean_data(serie)
     conn=sqlite3.connect("economic_db")
