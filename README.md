@@ -17,32 +17,14 @@ From GDP, Unemployment rates, Governement expenditure and import & export.
 </ul>
 
 <h2>Data Analysis and Visualization</h2>
-In this project, we analyze key economic indicators, including GDP, unemployment rate, inflation, and government spending, to gain insights into economic trends. We visualize these indicators over time and apply statistical methods to better understand long-term trends and fluctuations.
-<h3>OLS Regression Analysis:</h3>
-Ordinary Least Squares (OLS) regression is used to model the relationship between economic indicators like GDP and various independent variables, such as unemployment rate, government spending, and interest rates. By performing OLS regression, we can estimate how much each of these factors influences GDP growth.
-<h3>We used OLS regression to obtain:</h3>
-
-<ol>
-<li><strong>Coefficients:</strong> These represent the impact of each independent variable on GDP. For example, a positive coefficient means that as the independent variable increases, GDP is also expected to increase.</li>
-<li><strong>R-squared value:</strong> This measures how well the model fits the data. An R-squared value close to 1 means the model explains most of the variance in GDP.</li>
-<li><strong>P-values:</strong> These indicate the significance of each variable. A lower p-value (typically below 0.05) suggests that the corresponding predictor is statistically significant.</li>
-
 <h3>Rolling Mean/Moving Average</h3>
-A rolling mean (also known as a moving average) is applied to the GDP and unemployment time series data to smooth out short-term fluctuations. This method helps eliminate noise and highlights underlying trends over time. By calculating the average of values over a specified window (e.g., 5 years), we can better visualize the long-term trajectory of these economic indicators.
-
-This technique is verry good for:
-<ul>
-<li>Identifying consistent long-term trends in GDP and unemployment.</li>
-<li>Improving the clarity of time-series data by reducing random noise.</li>
-<li>Making it easier to forecast future values of economic indicators.</li>
-<h3>Correlation Matrix:</h3>
+<h3>Correlation:</h3>
 The correlation matrix is used to assess the linear relationships between pairs of economic indicators. Correlation values range from -1 to 1, where:
 <ul>
 <li>1 means a perfect positive correlation (both variables move in the same direction)</li>
 <li>-1 means a perfect negative correlation (both variables move in opposite directions)</li>
 <li>0 means no correlation (no predictable relationship).</li>
 <strong>Why Use Correlation in this Project?</strong>
-We use the correlation matrix to identify how closely  the key economic variables are related to each other. For example, if GDP and government spending are strongly correlated, it suggests that changes in government spending are likely to have a significant impact on GDP. The correlation matrix helps us prioritize which variables are most important to include in predictive models like OLS regression.</ul>
 
 <h2>Tools and Technologies</h2>
 <ul>
@@ -64,7 +46,6 @@ We use the correlation matrix to identify how closely  the key economic variable
 <li>matplotlib</li></ul></ul>
 <h2>Installation Steps:</h2>
 Clone or download this repository to your local machine using the following url: <a href="https://github.com/hasnasalah/FutureEconomics.git">Economic Future Project</a>
-
 <ul>
 <li>Open Visual Studio Code and open the project folder.</li>
 <li>Set up the Virtual Environment:</li>
