@@ -40,9 +40,9 @@ The correlation matrix is used to assess the linear relationships between pairs 
 <ul>
 <li>1 means a perfect positive correlation (both variables move in the same direction)</li>
 <li>-1 means a perfect negative correlation (both variables move in opposite directions)</li>
-</li>0 means no correlation (no predictable relationship).</li>
+<li>0 means no correlation (no predictable relationship).</li>
 <strong>Why Use Correlation in this Project?</strong>
-We use the correlation matrix to identify how closely  the key economic variables are related to each other. For example, if GDP and government spending are strongly correlated, it suggests that changes in government spending are likely to have a significant impact on GDP. The correlation matrix helps us prioritize which variables are most important to include in predictive models like OLS regression.
+We use the correlation matrix to identify how closely  the key economic variables are related to each other. For example, if GDP and government spending are strongly correlated, it suggests that changes in government spending are likely to have a significant impact on GDP. The correlation matrix helps us prioritize which variables are most important to include in predictive models like OLS regression.</ul>
 
 <h2>Tools and Technologies</h2>
 <ul>
@@ -63,17 +63,35 @@ We use the correlation matrix to identify how closely  the key economic variable
 <li>statsmodels</li>
 <li>matplotlib</li></ul></ul>
 <h2>Installation Steps:</h2>
-Clone or download this repository to your local machine using the following url:
+Clone or download this repository to your local machine using the following url: <a href="https://github.com/hasnasalah/FutureEconomics.git">Economic Future Project</a>
 
-Open Visual Studio Code and open the project folder.
+<ul>
+<li>Open Visual Studio Code and open the project folder.</li>
+<li>Set up the Virtual Environment:</li>
 
-Set up the Virtual Environment:
+<ul>
+<li>Open the terminal in Visual Studio Code (View > Terminal).</li>
+<li>Navigate to your project directory if not already there.</li>
+<li>Create virtual envirenment using the folowing code:</li>
+on Windows:
+    python -m venv venv
+on macOS/Linux:
+python3 -m venv venv
+<li> Activate the virtual envirenment</li>
+   <ul>
+   <li> On macOS/Linux using the following command:</li>
+         source venv/bin/activate
+   <li> On Windows using:</li>
+        venv/scripts/activate
+<li> Run the libraries<li>
+Note: 
+Ensure that you have the pip installed on your local machine to install the libraries using requirements file::
+<strong>on macOS/Linux:</strong>
+pip3 install -r requirements.txt
+<strong> On windows:</strong>
+  pip install -r requirements.txt
 
-Open the terminal in Visual Studio Code (View > Terminal).
-Navigate to your project directory if not already there:
-bash
-Copy code
 
 
 
-   
+
