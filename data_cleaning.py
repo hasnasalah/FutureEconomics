@@ -1,12 +1,14 @@
 import pandas as pd
 import requests
 import sqlite3
+import numpy as np
+import os
+from dotenv import find_dotenv, load_dotenv
 
-# Assign the API key
-fred_key = 'ecf39d17668932f2ba0bb24587a01919'
-
-# Define the FRED API endpoint
-base_url = 'https://api.stlouisfed.org/fred/series/observations'
+path=find_dotenv("Key.env")
+load_dotenv(path)
+fred_key=os.getenv('fred_key')
+base_url=os.getenv('base_url')
 series_id={
     'gdp':'GDP',
     'inflation':'CPIAUCSL',
@@ -14,7 +16,7 @@ series_id={
     'governement_spending':'FGEXPND'
 }
 
-# Method to get data for any series (e.g., GDP or Unemployment Rate)
+# Method to get data for series (Inflation, GDP, GDP, Governement spending and Unemployment Rate)
 def fetch_and_clean_data(series_id):
     parameters = {
         'series_id': series_id,  # Use the actual series_id passed to the function
@@ -45,27 +47,42 @@ def fetch_and_clean_data(series_id):
     else:
         print("Error: Unable to fetch data for",series_id,"Status code:", response.status_code)
         return None
+
 def get_interest_rate():
-    # Load the CSV file and remove the metadata rows
-    interest_rate = pd.read_csv("API_FR.INR.RINR_DS2_en_csv_v2_119 (1)/API_FR.INR.RINR_DS2_en_csv_v2_119.csv", skiprows=4)
-    # Transform into long format
-    df_filtered = interest_rate.melt(id_vars=['Country Name'], var_name='Year', value_name='Interest Rate')
-    # Convert values to numeric
-    df_filtered['Year'] = pd.to_numeric(df_filtered['Year'], errors='coerce')
+    # Load the CSV file and skip metadata rows
+    interest_rate = pd.read_csv("API_FR.INR.RINR_DS2_en_csv_v2_119/API_FR.INR.RINR_DS2_en_csv_v2_119.csv", skiprows=4)
     
-    # Remove NaN values and filter for the last 20 years
-    df_filtered = df_filtered.dropna().iloc[-20:]
+    # Transform the DataFrame into long format
+    df_filtered = interest_rate.melt(id_vars=['Country Name'], var_name='Year', value_name='Interest Rate')
+    
+    # Convert 'Year' to numeric, replacing non-numeric and missing values
+    df_filtered['Year'] = pd.to_numeric(df_filtered['Year'], errors='coerce')
+    df_filtered['Interest Rate'] = pd.to_numeric(df_filtered['Interest Rate'], errors='coerce')
+    
+    # Replace invalid values with NaN
+    df_filtered.replace(to_replace=['-INF', 'INF', 'NA'], value=np.nan, inplace=True)
+    
+    # Drop rows with NaN values
+    df_filtered.dropna(inplace=True)
+  
+
+    
+    # Filter for the last 20 years
+    df_filtered = df_filtered[df_filtered['Year']>2002]
+
     return df_filtered
 
     
 def main():
-    #test if all the data are fetched correctly
-    print(get_interest_rate().head())
+    #print Data to test if fetched correctly
+    # print(get_interest_rate().head())
+    g=get_interest_rate()
+    print(g[['Year', 'Interest Rate']].drop_duplicates())
     for name,serie in series_id.items():
         data=fetch_and_clean_data(serie)
         if data is not None:
-          print(f'{name} data:')
-          print(data.head())
+          print(name, "data:")
+        #   print(data.head())
         else:
             print("data is none")
 if __name__=="__main__":

@@ -4,11 +4,13 @@ import data_cleaning
 
 
 
-# import series id from the data_cleaning file
+# Import series ID from the data_cleaning file
 series_id=data_cleaning.series_id   
-#database name
+
+#Database name
 database="economic_db"
-#create a database to store teh data collected throgh api
+
+#Create a database to store the data collected through
 def create_database(table_name,database):
     conn=sqlite3.connect(database)
     cursor = conn.cursor()  
@@ -37,7 +39,7 @@ for name,serie in series_id.items():
     conn=sqlite3.connect("economic_db")
     if data is not None:
             create_database(name.replace(" ","_"),database)
-            insert_into_table(data, name.replace(" ", "_").lower())  # use indicator name as table name
+            insert_into_table(data, name.replace(" ", "_").lower())  #  name is table name
             print("All data has been inserted into SQLite database.") 
     else:
         print("Error")
