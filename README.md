@@ -82,7 +82,7 @@
 <strong>Deactivate</strong>
           Make sure after finishing with the project Deactivate the virtual environment using deactivate commend
 </ul>
-<h3> Run The Project</h3>
+<h3> Run The Code</h3>
 <ol>
    <li>data_cleaning file</li>
          Using teminal run the following command:
@@ -102,7 +102,11 @@
           run using the run all tab in the vs code 
          </ul>
 
-      
+<h2>Project Summary:</h2>
+<p>This project analyzes the United States economic indicators like interest rate, GDP, unemployment rate, governement spending and inflation over the last 20 years. The finding includes significant change in global interest rate, with a clear that it is rised in 2008 due to the financial crisis. After Covid-19 as well, global interest rate is stable around 5%, showing efforts to balance the economic. Comparison between China and the United States shows different approaches: China focused on  stability, while the U.S. follows an aggressive policy with negative real interest rate to stimulate the economy.</p>
+
+<h3>Next Steps:</h3>
+<p>I, am continuing to learn, keep exploring economic trends and update the analysis, adding additional data and advanced methods to enhance the analysis and predictions.</p>
 
 
     
