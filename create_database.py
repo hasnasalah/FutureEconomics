@@ -25,12 +25,12 @@ def create_database(table_name,database):
 def insert_into_table(df,table_name,database="economic_db"):
      conn=sqlite3.connect(database)
      cursor=conn.cursor()
+     #Set the date column to date type
      df['date'] = df['date'].dt.strftime('%Y-%m-%d')
-     for index in range(len(df)):
-        date = df.iloc[index]['date']
-        value = df.iloc[index]['value']
-        cursor.execute(f"INSERT INTO {table_name} (date, value) VALUES (?, ?)", (date, value))
-        conn.commit()
+     data = list(zip(df['date'], df['value']))
+    # Insert rows 
+     cursor.executemany(f"INSERT INTO {table_name} (date, value) VALUES (?, ?)", data)
+     conn.commit()
      conn.close()
 
 #Insert Data into Database tables 
@@ -38,8 +38,8 @@ for name,serie in series_id.items():
     data=data_cleaning.fetch_and_clean_data(serie)
     conn=sqlite3.connect("economic_db")
     if data is not None:
-            create_database(name.replace(" ","_"),database)
-            insert_into_table(data, name.replace(" ", "_").lower())  #  name is table name
+            create_database(name,database)
+            insert_into_table(data, name)  #  name is table name
             print("All data has been inserted into SQLite database.") 
     else:
         print("Error")
