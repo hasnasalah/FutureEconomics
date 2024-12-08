@@ -52,7 +52,7 @@ def get_interest_rate():
     # Load the CSV file and skip metadata rows
     interest_rate = pd.read_csv("API_FR.INR.RINR_DS2_en_csv_v2_119/API_FR.INR.RINR_DS2_en_csv_v2_119.csv", skiprows=4)
     
-    # Transform the DataFrame into long format
+    # Transform the DataFrame into a regular format by making column year interest rate and country name
     df_filtered = interest_rate.melt(id_vars=['Country Name'], var_name='Year', value_name='Interest Rate')
     
     # Convert 'Year' to numeric, replacing non-numeric and missing values

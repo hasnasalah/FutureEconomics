@@ -37,12 +37,13 @@ def insert_into_table(df,table_name,database="economic_db"):
 for name,serie in series_id.items():
     data=data_cleaning.fetch_and_clean_data(serie)
     conn=sqlite3.connect(database)
-    if data is not None:
-            create_database(name,database)
-            insert_into_table(data, name)  #  name is table name
-            print("All data has been inserted into SQLite database.") 
+    if data is None:
+          print("Error")
     else:
-        print("Error")
+        create_database(name,database)
+        insert_into_table(data, name)  #  name is table name
+        print("All data has been inserted into SQLite database.") 
+        
 
 
 

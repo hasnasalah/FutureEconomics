@@ -79,6 +79,10 @@
             pip3 install -r requirements.txt</br>
     <strong> On windows:</strong></br>
             pip install -r requirements.txt</br>
+<li>.env File Access</li>
+The `.env` file is stored in a private repository. If you don't have access, Please Contact Hasna Ben Jillali
+<li>Using the .env File</li>
+After Cloning the .env repositry: The `.env` file should be placed in the root directory of the project.
 <strong>Deactivate</strong>
           Make sure after finishing with the project Deactivate the virtual environment using deactivate commend
 </ul>
