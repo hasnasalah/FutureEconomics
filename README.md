@@ -42,7 +42,7 @@
 
 <ul>
   <li>
-    <strong>Data Cleaning and Preprocessing</strong>
+    <strong>Data Cleaning </strong>
     <ul>
       <li>Handled missing and invalid data by replacing <code>INF</code>, <code>-INF</code>, and <code>NA</code> with <code>NaN</code>.</li>
       <li>Filter data to get the last 20 years for analysis.</li>
