@@ -38,6 +38,57 @@
     <li>Database: SQLITE (for data storage and management)</li>
     <li>IDE: VS Code for code development </li>
 </ul>
+<h2>Features Used in the Project</h2>
+
+<ul>
+  <li>
+    <strong>Data Cleaning and Preprocessing</strong>
+    <ul>
+      <li>Handled missing and invalid data by replacing <code>INF</code>, <code>-INF</code>, and <code>NA</code> with <code>NaN</code>.</li>
+      <li>Filter data to get the last 20 years for analysis.</li>
+      <li>Transf wide data into long one using the <code>melt()</code> method.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Data Storing</strong>
+    <ul>
+      <li>Use SQLite as the database to store cleaned Data.</li>
+      <li>Create tables based on economic indicators(GDP,Inflation, etc..) using Python scripts.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Data Analysis and Visualization</strong>
+    <ul>
+      <li>Grouped data by year and calculated averages for global interest rate.</li>
+      <li>Visualize interest rates over time using <code>Matplotlib</code>.</li>
+      <li>Highlight Interest Rate for specific countries (United States, China) to compare approches.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Custom Functions</strong>
+    <ul>
+      <li>Reusable functions for database operations (<code>create_table</code>, <code>insert_into_table</code>).</li>
+      <li>Reusable fetching , cleaning, and storing methods.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Project Structure</strong>
+    <ul>
+      <li>Organized the project into modules (<code>data_cleaning</code>, <code>create_database</code>),<code>data_visualization</code> notebook</li>
+      <li>Included a virtual environment and requirements file.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Key Insights</strong>
+    <ul>
+      <li> Steady growth shown  but conistant increase of inflation and unemployment Rates.</li>
+      <li>GDP shows steady growth, while government spending has varied, reflecting economic cycles<li>
+      <li>Analyzed interest rate trends during major events (2008 financial crisis, Covid 19 pandemic).</li>
+      <li>Highlighted differences in policy responses by key economies like the U.S. and China.</li>
+    </ul>
+  </li>
+</ul>
+
 <h2>Setup Instructions</h2>
 <h3>Requirements:</h3>
 <ul>
