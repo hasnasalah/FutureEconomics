@@ -63,6 +63,7 @@
       <li>Visualize interest rates over time using <code>Matplotlib</code>.</li>
       <li>Highlight Interest Rate for specific countries (United States, China) to compare approches.</li>
     </ul>
+    <li>Use Correlation Analysis to identified relationships between economic indicators.</li>
   </li>
   <li>
     <strong>Custom Functions</strong>
